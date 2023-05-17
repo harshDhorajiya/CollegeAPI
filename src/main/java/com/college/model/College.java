@@ -22,4 +22,9 @@ public class College {
     private Integer accomodationFee;
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/main
 }
