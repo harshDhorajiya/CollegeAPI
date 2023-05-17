@@ -8,7 +8,7 @@ import java.util.List;
 public interface CollegeService {
 
     CollegeDTO addNewCollege(CollegeDTO collegeDTO);
-    CollegeDTO getCollgeDetailsById(Integer collegeID);
+    CollegeDTO getCollgeDetailsById(Integer collegeID) throws Exception;
     List<CollegeDTO> getAllCollegeDetails();
 
 }

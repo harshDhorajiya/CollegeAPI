@@ -5,6 +5,7 @@ import com.college.payload.CollegeDTO;
 import com.college.repositories.CollegeRepository;
 import com.college.services.CollegeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
 
@@ -26,13 +27,14 @@ public class CollegeServiceImpl implements CollegeService {
     }
 
     @Override
-    public CollegeDTO getCollgeDetailsById(Integer collegeID) {
-
-        return null;
+    public CollegeDTO getCollgeDetailsById(Integer collegeID) throws Exception {
+         College college =this.collegeRepo.findById(collegeID).orElseThrow( ()-> new Exception() );
+        return college_to_Dto(college);
     }
 
     @Override
     public List<CollegeDTO> getAllCollegeDetails() {
+
         return null;
     }
 
@@ -48,5 +50,6 @@ public class CollegeServiceImpl implements CollegeService {
         College college = this.modelMapper.map(collegeDTO,College.class);
         return college;
     }
+
 
 }
