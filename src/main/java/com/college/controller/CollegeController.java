@@ -22,13 +22,13 @@ public class CollegeController {
        return new ResponseEntity<>(newCollege, HttpStatus.CREATED);
     }
 
-    @GetMapping ("/{collegeid}")
-    public ResponseEntity<CollegeDTO> getCollegeById (@PathVariable Integer collegeid) throws Exception {
-        return ResponseEntity.ok(collegeService.getCollgeDetailsById(collegeid));
-    }
+//    @GetMapping ("/{collegeid}")
+//    public ResponseEntity<CollegeDTO> getCollegeById (@PathVariable Integer collegeid) throws Exception {
+//        return ResponseEntity.ok(collegeService.getCollgeDetailsById(collegeid));
+//    }
 
     @GetMapping
     public ResponseEntity<List<CollegeDTO>> getAllCollege () {
-        return (ResponseEntity<List<CollegeDTO>>) collegeService.getAllCollegeDetails();
+        return ResponseEntity.ok( collegeService.getAllCollegeDetails());
     }
 }

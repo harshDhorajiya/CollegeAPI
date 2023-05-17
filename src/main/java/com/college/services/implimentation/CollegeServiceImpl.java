@@ -5,7 +5,6 @@ import com.college.payload.CollegeDTO;
 import com.college.repositories.CollegeRepository;
 import com.college.services.CollegeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
 
@@ -19,6 +18,7 @@ public class CollegeServiceImpl implements CollegeService {
       private ModelMapper modelMapper;
       @Autowired
       private CollegeRepository collegeRepo;
+
 
     @Override
     public CollegeDTO addNewCollege(CollegeDTO collegeDTO) {

@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -12,7 +15,6 @@ public class College {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "College-ID")
     private Integer collegeID;
-
     @Column(name = "College-Name")
     private String collegeName;
     @Column(name = "Accommodation-Type")
@@ -20,8 +22,8 @@ public class College {
     @Column(name = "Accommodation-Fee")
     private Integer accomodationFee;
 
-    @OneToMany
+    @ManyToMany
     @JoinColumn(name = "course_id")
-    private Course course;
+    private List <Course> courses = new ArrayList<>();
 
 }
