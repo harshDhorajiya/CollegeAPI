@@ -8,7 +8,6 @@ import lombok.Setter;
 @Setter
 @Entity
 public class College {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "College-ID")
@@ -21,10 +20,8 @@ public class College {
     @Column(name = "Accommodation-Fee")
     private Integer accomodationFee;
 
+    @OneToMany
+    @JoinColumn(name = "course_id")
+    private Course course;
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/main
 }
