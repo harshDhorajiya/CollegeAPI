@@ -1,0 +1,14 @@
+package com.college.services;
+
+
+import com.college.payload.CollegeDTO;
+
+import java.util.List;
+
+public interface CollegeService {
+
+    CollegeDTO addNewCollege(CollegeDTO collegeDTO);
+    CollegeDTO getCollgeDetailsById(Integer collegeID);
+    List<CollegeDTO> getAllCollegeDetails();
+
+}
