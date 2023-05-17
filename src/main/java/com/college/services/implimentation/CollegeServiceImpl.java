@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CollegeServiceImpl implements CollegeService {
@@ -34,8 +35,10 @@ public class CollegeServiceImpl implements CollegeService {
 
     @Override
     public List<CollegeDTO> getAllCollegeDetails() {
+        List<College> collegeList = this.collegeRepo.findAll();
+        List<CollegeDTO> collegeDTOS =  collegeList.stream().map(college -> college_to_Dto(college)).collect(Collectors.toList());
 
-        return null;
+        return collegeDTOS;
     }
 
 
