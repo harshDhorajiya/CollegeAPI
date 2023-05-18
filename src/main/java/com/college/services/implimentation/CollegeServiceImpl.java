@@ -42,17 +42,16 @@ public class CollegeServiceImpl implements CollegeService {
     }
 
 
-    //Method for convert college class object to collegeDTO class object
+
+    //Method for convert College.class object to CollegeDTO.class object
     public CollegeDTO college_to_Dto (College college){
         CollegeDTO collegeDTO = this.modelMapper.map(college,CollegeDTO.class);
         return collegeDTO;
     }
 
-    //Method for convert collegeDTO.class object to college.class object
+    //Method for convert CollegeDTO.class object to College.class object
     public College Dto_to_College (CollegeDTO collegeDTO){
         College college = this.modelMapper.map(collegeDTO,College.class);
         return college;
     }
-
-
 }

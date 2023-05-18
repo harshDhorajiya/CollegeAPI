@@ -13,6 +13,5 @@ public class CollegeDTO {
     private String collegeName;
     private String accommodation;
     private Integer accomodationFee;
-
-   // private CourseDTO courseDTO;
+     private CourseDTO courseDTO;
 }
