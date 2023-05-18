@@ -22,13 +22,18 @@ public class CollegeController {
        return new ResponseEntity<>(newCollege, HttpStatus.CREATED);
     }
 
-//    @GetMapping ("/{collegeid}")
-//    public ResponseEntity<CollegeDTO> getCollegeById (@PathVariable Integer collegeid) throws Exception {
-//        return ResponseEntity.ok(collegeService.getCollgeDetailsById(collegeid));
-//    }
+    @GetMapping ("/{collegeid}")
+    public ResponseEntity<CollegeDTO> getCollegeById (@PathVariable Integer collegeid) throws Exception {
+        return ResponseEntity.ok(collegeService.getCollgeDetailsById(collegeid));
+    }
 
     @GetMapping
     public ResponseEntity<List<CollegeDTO>> getAllCollege () {
         return ResponseEntity.ok( collegeService.getAllCollegeDetails());
+    }
+
+    @PutMapping("/add/course/{courseId}/{collegeId}")
+    public ResponseEntity<CollegeDTO> addCourseToCollege(@PathVariable Integer courseId ,@PathVariable Integer collegeId) throws Exception {
+        return ResponseEntity.ok(collegeService.addCoursetoCollege(courseId,collegeId));
     }
 }

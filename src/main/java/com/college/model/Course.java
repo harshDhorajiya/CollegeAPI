@@ -19,4 +19,5 @@ public class Course {
     @Column(name = "Course-Fee")
     private Integer courseFee;
 
+    
 }

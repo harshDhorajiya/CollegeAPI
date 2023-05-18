@@ -22,8 +22,8 @@ public class College {
     @Column(name = "Accommodation-Fee")
     private Integer accomodationFee;
 
-    @ManyToMany
+    @OneToMany(cascade = CascadeType.ALL )
     @JoinColumn(name = "course_id")
-    private List <Course> courses = new ArrayList<>();
+    public List <Course> courses = new ArrayList<>();
 
 }

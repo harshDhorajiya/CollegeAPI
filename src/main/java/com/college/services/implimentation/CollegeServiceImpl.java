@@ -1,9 +1,12 @@
 package com.college.services.implimentation;
 
 import com.college.model.College;
+import com.college.model.Course;
 import com.college.payload.CollegeDTO;
+import com.college.payload.CourseDTO;
 import com.college.repositories.CollegeRepository;
 import com.college.services.CollegeService;
+import com.college.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
@@ -18,6 +21,8 @@ public class CollegeServiceImpl implements CollegeService {
       private ModelMapper modelMapper;
       @Autowired
       private CollegeRepository collegeRepo;
+      @Autowired
+      private CourseService courseService;
 
 
     @Override
@@ -29,7 +34,7 @@ public class CollegeServiceImpl implements CollegeService {
 
     @Override
     public CollegeDTO getCollgeDetailsById(Integer collegeID) throws Exception {
-         College college =this.collegeRepo.findById(collegeID).orElseThrow( ()-> new Exception() );
+         College college =this.collegeRepo.findById(collegeID).orElseThrow( ()-> new Exception("College not found on given id") );
         return college_to_Dto(college);
     }
 
@@ -41,6 +46,15 @@ public class CollegeServiceImpl implements CollegeService {
         return collegeDTOS;
     }
 
+    @Override
+    public CollegeDTO addCoursetoCollege(Integer courseID , Integer collegeId) throws Exception {
+        Course course = courseService.dto_to_Course(courseService.getCourseDetailById(courseID)) ;
+        CollegeDTO collegeDTO= getCollgeDetailsById(collegeId);
+        College college = Dto_to_College(collegeDTO);
+        college.courses.add(course);
+        College addedCourseCollege = collegeRepo.save(college);
+        return college_to_Dto(addedCourseCollege);
+    }
 
 
     //Method for convert College.class object to CollegeDTO.class object
