@@ -34,7 +34,7 @@ public class CollegeController {
     }
 
     /*
-    getAllCollege() controller for giving responce as all college details along with courses.  
+    getAllCollege() controller for giving responce as all college details along with courses.
      */
     @GetMapping("/")
     public ResponseEntity<List<CollegeDTO>> getAllCollege () {
