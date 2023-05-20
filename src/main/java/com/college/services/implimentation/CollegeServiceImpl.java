@@ -24,7 +24,9 @@ public class CollegeServiceImpl implements CollegeService {
       @Autowired
       private CourseService courseService;
 
-
+      /*
+      Here is service addNewCollege() that
+       */
     @Override
     public CollegeDTO addNewCollege(CollegeDTO collegeDTO) {
         College college = Dto_to_College(collegeDTO);

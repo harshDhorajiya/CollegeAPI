@@ -25,7 +25,7 @@ public class CourseServiceImpl implements CourseService {
     private CollegeRepository collegeRepo;
 
     /*
-     Here is service addNewCourse() that helps to add new Course to theis related College.
+     Here is service addNewCourse() that defines addition of new Course to their related College.
      */
     @Override
     public CourseDTO addNewCourse(CourseDTO courseDTO,Integer collegeId) throws Exception {
@@ -37,7 +37,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /*
-    Here is service getCourseDetailById() that helps to send responce for particulate
+    Here is service getCourseDetailById() that defines responce for particulate
     requested id of Course.
 
      */
@@ -48,7 +48,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /*
-    Here is service getAllCourseDetail() that helps to send responce as all Course which is stored in database.  
+    Here is service getAllCourseDetail() that defines responce as all Course which is stored in database.
      */
 
     @Override
