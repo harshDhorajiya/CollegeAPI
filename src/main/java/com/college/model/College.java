@@ -29,5 +29,5 @@ public class College {
     @JsonIgnore
     @OneToMany(mappedBy = "college", cascade = CascadeType.ALL )
     public List <Course> courses = new ArrayList<>();
-
+    
 }
