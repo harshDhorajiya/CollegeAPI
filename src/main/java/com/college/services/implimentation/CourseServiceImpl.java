@@ -24,6 +24,9 @@ public class CourseServiceImpl implements CourseService {
     @Autowired
     private CollegeRepository collegeRepo;
 
+    /*
+     Here is service addNewCourse() that helps to add new Course to theis related College.
+     */
     @Override
     public CourseDTO addNewCourse(CourseDTO courseDTO,Integer collegeId) throws Exception {
         College college = collegeRepo.findById(collegeId).orElseThrow(()-> new Exception("College not found with given College-Id"));
@@ -33,11 +36,20 @@ public class CourseServiceImpl implements CourseService {
         return course_to_DTO(course);
     }
 
+    /*
+    Here is service getCourseDetailById() that helps to send responce for particulate
+    requested id of Course.
+
+     */
     @Override
     public CourseDTO getCourseDetailById(Integer courseId) throws Exception {
         Course course = courseRepo.findById(courseId).orElseThrow(()-> new Exception("Course for given id is not found"));
         return course_to_DTO(course);
     }
+
+    /*
+    Here is service getAllCourseDetail() that helps to send responce as all Course which is stored in database.  
+     */
 
     @Override
     public List<CourseDTO> getAllCourseDetail() {
