@@ -25,7 +25,7 @@ public class CollegeServiceImpl implements CollegeService {
       private CourseService courseService;
 
       /*
-      Here is service addNewCollege() that
+      Here is service addNewCollege() that defines addition for new college.
        */
     @Override
     public CollegeDTO addNewCollege(CollegeDTO collegeDTO) {
@@ -34,11 +34,19 @@ public class CollegeServiceImpl implements CollegeService {
         return college_to_Dto(newcollge);
     }
 
+    /*
+    Here is service getCollegeDetailsById() that defines responce for particulate requested college-id.
+     */
     @Override
     public CollegeDTO getCollgeDetailsById(Integer collegeID) throws Exception {
          College college =this.collegeRepo.findById(collegeID).orElseThrow( ()-> new Exception("College not found on given id") );
         return college_to_Dto(college);
     }
+
+    /*
+       Here is service getAllCollegeDetails() that defines responce as all college details with their
+       courses.
+      */
 
     @Override
     public List<CollegeDTO> getAllCollegeDetails() {
@@ -46,8 +54,6 @@ public class CollegeServiceImpl implements CollegeService {
         List<CollegeDTO> collegeDTOS =  collegeList.stream().map(college -> college_to_Dto(college)).collect(Collectors.toList());
         return collegeDTOS;
     }
-
-
 
 
     //Method for convert College.class object to CollegeDTO.class object
