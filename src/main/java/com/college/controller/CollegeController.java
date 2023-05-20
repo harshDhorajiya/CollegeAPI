@@ -27,13 +27,9 @@ public class CollegeController {
         return ResponseEntity.ok(collegeService.getCollgeDetailsById(collegeid));
     }
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<CollegeDTO>> getAllCollege () {
         return ResponseEntity.ok( collegeService.getAllCollegeDetails());
     }
 
-    @PutMapping("/add/course/{courseId}/{collegeId}")
-    public ResponseEntity<CollegeDTO> addCourseToCollege(@PathVariable Integer courseId ,@PathVariable Integer collegeId) throws Exception {
-        return ResponseEntity.ok(collegeService.addCoursetoCollege(courseId,collegeId));
-    }
 }

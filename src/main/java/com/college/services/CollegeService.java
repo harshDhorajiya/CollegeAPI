@@ -10,5 +10,5 @@ public interface CollegeService {
     CollegeDTO addNewCollege(CollegeDTO collegeDTO);
     CollegeDTO getCollgeDetailsById(Integer collegeID) throws Exception;
     List<CollegeDTO> getAllCollegeDetails();
-    CollegeDTO addCoursetoCollege (Integer courseID,Integer collegeID) throws Exception;
+
 }

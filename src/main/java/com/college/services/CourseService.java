@@ -6,7 +6,7 @@ import com.college.payload.CourseDTO;
 import java.util.List;
 
 public interface CourseService {
-    CourseDTO addNewCourse(CourseDTO courseDTO);
+    CourseDTO addNewCourse(CourseDTO courseDTO,Integer collegeId) throws Exception;
     CourseDTO getCourseDetailById(Integer courseId) throws Exception;
     List<CourseDTO> getAllCourseDetail();
 

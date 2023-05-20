@@ -1,5 +1,6 @@
 package com.college.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,15 +16,18 @@ public class College {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "College-ID")
     private Integer collegeID;
+
     @Column(name = "College-Name")
     private String collegeName;
+
     @Column(name = "Accommodation-Type")
     private String accommodation;
+
     @Column(name = "Accommodation-Fee")
     private Integer accomodationFee;
 
-    @OneToMany(cascade = CascadeType.ALL )
-    @JoinColumn(name = "course_id")
+    @JsonIgnore
+    @OneToMany(mappedBy = "college", cascade = CascadeType.ALL )
     public List <Course> courses = new ArrayList<>();
 
 }

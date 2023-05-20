@@ -1,8 +1,10 @@
 package com.college.services.implimentation;
 
+import com.college.model.College;
 import com.college.model.Course;
 import com.college.payload.CollegeDTO;
 import com.college.payload.CourseDTO;
+import com.college.repositories.CollegeRepository;
 import com.college.repositories.CourseRepository;
 import com.college.services.CourseService;
 import org.modelmapper.ModelMapper;
@@ -19,10 +21,15 @@ public class CourseServiceImpl implements CourseService {
     private ModelMapper modelMapper;
     @Autowired
     private CourseRepository courseRepo;
+    @Autowired
+    private CollegeRepository collegeRepo;
 
     @Override
-    public CourseDTO addNewCourse(CourseDTO courseDTO) {
-        Course course = courseRepo.save(dto_to_Course(courseDTO));
+    public CourseDTO addNewCourse(CourseDTO courseDTO,Integer collegeId) throws Exception {
+        College college = collegeRepo.findById(collegeId).orElseThrow(()-> new Exception("College not found with given College-Id"));
+        Course course = (dto_to_Course(courseDTO));
+        course.setCollege(college);
+        courseRepo.save(course);
         return course_to_DTO(course);
     }
 

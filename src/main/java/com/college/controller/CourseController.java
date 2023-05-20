@@ -16,9 +16,9 @@ public class CourseController {
       @Autowired
      private CourseService courseService;
 
-    @PostMapping("/add")
-    public ResponseEntity<CourseDTO> AddCourse (@RequestBody CourseDTO courseDTO){
-        CourseDTO newCourse = courseService.addNewCourse(courseDTO);
+    @PostMapping("/add/{collegeid}")
+    public ResponseEntity<CourseDTO> AddCourse (@RequestBody CourseDTO courseDTO ,@PathVariable Integer collegeid ) throws Exception {
+        CourseDTO newCourse = courseService.addNewCourse(courseDTO,collegeid);
         return new ResponseEntity<>(newCourse, HttpStatus.CREATED);
     }
 

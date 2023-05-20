@@ -42,19 +42,10 @@ public class CollegeServiceImpl implements CollegeService {
     public List<CollegeDTO> getAllCollegeDetails() {
         List<College> collegeList = this.collegeRepo.findAll();
         List<CollegeDTO> collegeDTOS =  collegeList.stream().map(college -> college_to_Dto(college)).collect(Collectors.toList());
-
         return collegeDTOS;
     }
 
-    @Override
-    public CollegeDTO addCoursetoCollege(Integer courseID , Integer collegeId) throws Exception {
-        Course course = courseService.dto_to_Course(courseService.getCourseDetailById(courseID)) ;
-        CollegeDTO collegeDTO= getCollgeDetailsById(collegeId);
-        College college = Dto_to_College(collegeDTO);
-        college.courses.add(course);
-        College addedCourseCollege = collegeRepo.save(college);
-        return college_to_Dto(addedCourseCollege);
-    }
+
 
 
     //Method for convert College.class object to CollegeDTO.class object

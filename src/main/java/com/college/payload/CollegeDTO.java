@@ -1,8 +1,11 @@
 package com.college.payload;
 
+import com.college.model.Course;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -13,5 +16,7 @@ public class CollegeDTO {
     private String collegeName;
     private String accommodation;
     private Integer accomodationFee;
-     private CourseDTO courseDTO;
+
+    private List<Course> courses;
+
 }
